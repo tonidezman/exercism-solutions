@@ -3,21 +3,11 @@ package bob
 import (
 	"regexp"
 	"strings"
-	"unicode"
 )
-
-func trimWhiteSpace(response string) string {
-	return strings.Map(func(r rune) rune {
-		if unicode.IsSpace(r) {
-			return -1
-		}
-		return r
-	}, response)
-}
 
 // Hey returns remark
 func Hey(remark string) string {
-	r := trimWhiteSpace(remark)
+	r := strings.TrimSpace(remark)
 	questionChar := "?"
 	emptyString := ""
 
